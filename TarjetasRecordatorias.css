@@ -1,0 +1,13 @@
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+.btn-primary{
+    margin: 10px;
+}
