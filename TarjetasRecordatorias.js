@@ -10,6 +10,15 @@ const classes=[
   'card text-dark bg-light mb-3',
   'card text-white bg-dark mb-3',
 ];
+function formFill(){
+  const form = document.getElementById('form');
+  const formData = new FormData(form);
+  const data = {};
+  formData.forEach((value, key) => {
+    data[key] = value;
+  });
+  return data;
+}
 function createTarget(){
     const target = document.createElement('div');
     target.style.opacity = 1;
