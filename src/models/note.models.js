@@ -9,4 +9,4 @@ const NoteSchema = new Schema({
         required: true
     }
 });
-export default model('Note', NoteSchema);
+module.exports = model('Note', NoteSchema);

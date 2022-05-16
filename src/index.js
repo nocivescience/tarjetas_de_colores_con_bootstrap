@@ -20,10 +20,8 @@ app.set("view engine", "hbs");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
-//routes
-
 //public routes
-
+app.use(require("./routes/notes.routes"));
 //listen
 app.listen(app.get("port"), () => {
     console.log("Server on port", app.get("port"));
