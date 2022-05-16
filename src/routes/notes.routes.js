@@ -9,10 +9,31 @@ router.get('/notes/all-notes', async(req, res) => {
     console.log(notes);
     res.json(notes);
 });
-router.get('/notes/new-note', (req, res) => {
-    res.render('about');
+router.post('/notes/new-note', async(req, res) => {
+    const { title, content } = req.body;
+    const newNote = new Note({
+        title,
+        content
+    });
+    await newNote.save();
+    res.json({
+        status: 'Note Saved'
+    });
 });
-router.get('/edit', (req, res) => {
-    res.render('edit');
+router.put('/notes/update-note/:id', async(req, res) => {
+    const { title, content } = req.body;
+    await Note.findByIdAndUpdate(req.params.id, {
+        title,
+        content
+    });
+    res.json({
+        status: 'Note Updated'
+    });
+});
+router.delete('/notes/delete-note/:id', async(req, res) => {
+    await Note.findByIdAndRemove(req.params.id);
+    res.json({
+        status: 'Note Deleted'
+    });
 });
 module.exports = router;

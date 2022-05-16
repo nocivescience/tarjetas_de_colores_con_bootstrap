@@ -3,6 +3,7 @@ const app = express();
 const path=require("path");
 const morgan = require("morgan");
 const {engine} = require("express-handlebars");
+const {mongoose} = require("./database");
 //settings
 app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"));
