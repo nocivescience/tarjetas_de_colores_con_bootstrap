@@ -20,8 +20,10 @@ app.set("view engine", "hbs");
 //middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "views")));
 app.use(express.urlencoded({ extended: false }));
 //public routes
+app.use(require("./routes/index.routes"));
 app.use(require("./routes/notes.routes"));
 //listen
 app.listen(app.get("port"), () => {
