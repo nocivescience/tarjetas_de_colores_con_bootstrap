@@ -7,7 +7,8 @@ router.get('/', (req, res) => {
 router.get('/notes/all-notes', async(req, res) => {
     const notes = await Note.find();
     console.log(notes);
-    res.json(notes);
+    res.render('all-notes', { notes });
+    
 });
 router.post('/notes/new-note', async(req, res) => {
     const { title, content } = req.body;
@@ -15,6 +16,7 @@ router.post('/notes/new-note', async(req, res) => {
         title,
         content
     });
+    console.log(newNote);
     await newNote.save();
     res.json({
         status: 'Note Saved'

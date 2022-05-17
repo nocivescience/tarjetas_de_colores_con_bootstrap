@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    Hola mundo
+    {{#each notes}}
+        <div>
+            <h2>{{title}}</h2>
+            <p>{{content}}</p>
+        </div>
+    {{/each}}
 </body>
 </html>

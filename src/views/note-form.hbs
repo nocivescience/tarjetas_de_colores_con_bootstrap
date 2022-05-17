@@ -4,26 +4,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .btn-primary{
+        margin-top: 20px;
+        width: 200px;
+        margin-left: calc(50% - 100px);
+      }
+    </style>
   </head>
   <body>
     <div style="margin:30px">
-      <form>
+      <form action="/notes/new-note" method="POST">
         <div class="form-group">
           <label for="exampleFormControlInput1">Título</label>
           <input
             type="text"
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            name="title"
           />
         </div>
         <div class="form-group">
-          <label for="exampleFormControlTextarea1">Descripción</label>
+          <label for="exampleFormControlTextarea1" name="title">Descripción</label>
           <textarea
             class="form-control"
             id="exampleFormControlTextarea1"
             rows="3"
+            name="content"
           ></textarea>
+          <button type="submit" class="btn btn-primary">Envío</button>
         </div>
       </form>
     </div>
