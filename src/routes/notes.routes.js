@@ -8,7 +8,7 @@ router.get('/notes/all-notes', async(req, res) => {
     const notes = await Note.find();
     console.log(notes);
     res.render('all-notes', { notes });
-    
+    res.json(notes);
 });
 router.post('/notes/new-note', async(req, res) => {
     const { title, content } = req.body;

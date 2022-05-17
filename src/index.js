@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const path=require("path");
 const morgan = require("morgan");
-const {engine} = require("express-handlebars");
+const exphbs = require("express-handlebars");
 const {mongoose} = require("./database");
 const session = require("express-session");
 const methodOverride = require("method-override");
@@ -12,7 +12,7 @@ app.set("port", process.env.PORT || 3000);
 app.set("views", path.join(__dirname, "views"));
 app.engine(
     "hbs",
-    engine({
+    exphbs({
         extname: "hbs",
         defaultLayout: "main",
         layoutsDir: path.join(app.get("views"), "layouts"),
